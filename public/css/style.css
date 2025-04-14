@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: helvetica;
+}
+header nav #noturno{
+    height: 70px;
+    width: 50px;
+}
+
+.messages{
+    padding: 1em;
+    color: white;
+    background-color: rgb(93, 130, 252);
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto 2em;
+    max-width: 60%;
+}
+
+header{
+    padding: 1em;
+    background: transparent;
+    border-bottom: 2px solid rgb(47, 255, 54);
+    border-radius: 0px 0px 30px 30px;
+}
+header nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul{
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li{
+    margin-left: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    color: rgb(47, 255, 54) ;
+    transition: .5s;
+}
+
+header nav ul li:hover{
+    padding: 12px;
+    background-color: rgb(47, 255, 54);
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: rgb(47, 255, 54) ;
+    font-weight: bold;
+    padding: 12px;
+}
+
+header nav ul li a:hover{
+    color: white;
+}
+
+.container{
+    min-height: 60vh;
+    padding: 2em;
+}
+
+footer{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgb(47, 255, 54);
+}
+
+footer span{
+    font-weight: bold;
+    color: rgb(47, 255, 54);
+}
+
+.auth-container{
+    margin: 10px auto;
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-container h2{
+    margin: 1em;
+    color:rgb(47, 255, 54) ;
+    padding: 5px;
+    padding-left: 5px;
+    border-left: 5px solid rgb(47, 255, 54);
+}
+
+.auth-container form{
+    width: 80%;
+    margin-bottom: 1em;
+}
+
+.auth-container form .form-control{
+    padding: 10px;
+    color: rgb(47, 255, 54);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: bold;
+    width: 98%;
+}
+
+.auth-container form .form-control input, .form-control textarea{
+    padding: 10px;
+    border: none;
+    border: 1px solid rgb(47, 255, 54);
+    border-radius: 10px;
+    background: transparent;
+}
+
+.auth-container form input[type = 'submit']{
+    display: flex;
+    padding: 10px;
+    border: none;
+    background-color: rgb(47, 255, 54);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    width: 100%;
+    font-weight: bold;
+}
+
+.auth-container form p{
+    text-align: center;
+    margin: 10px;
+    color: rgb(47, 255, 54);
+    font-weight: bold;
+}
+
+.auth-container form p a{
+    text-decoration: none;
+    color: rgb(189, 255, 47);
+}
