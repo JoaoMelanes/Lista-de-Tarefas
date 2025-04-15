@@ -9,9 +9,13 @@ header nav #img{
     cursor: pointer;
 }
 
+body{
+    color: green;
+}
+
 .messages{
     padding: 1em;
-    color: white;
+    color: rgb(255, 255, 255);
     background-color: rgb(93, 130, 252);
     border-radius: 10px;
     text-align: center;
@@ -70,6 +74,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    color: green;
     border-top: 1px solid rgb(47, 255, 54);
 }
 
@@ -141,3 +146,63 @@ footer span{
     text-decoration: none;
     color: rgb(189, 255, 47);
 }
+
+.btn{
+    padding: 10px;
+    color: rgb(47, 255, 54) ;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.5s;
+    border: none;
+}
+
+.btn:hover{
+    color: white;
+    background-color: rgb(47, 255, 54);
+    padding: 12px;
+}
+.list{
+    width: 90%;
+}
+
+.list p{
+    text-align: center;
+}
+.list p a{
+    text-decoration: none;
+    color: rgb(47, 255, 54);
+    font-weight: bold;
+}
+
+.list ul{
+    list-style: none;
+}
+
+.list ul li{
+    display: flex;
+    justify-content: space-between;
+    margin: 1em auto;
+    font-weight: bold;
+    border-bottom: 1px solid green;
+    align-items: center;
+}
+
+.list .action{
+    display: flex;
+    flex-direction: row;
+}
+
+.list .action a{
+    margin-right: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    color:rgb(47, 255, 54) ;
+}
+
+.list .action form input{
+    cursor: pointer;
+}
+
+

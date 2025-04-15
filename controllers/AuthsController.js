@@ -1,9 +1,38 @@
+
 const User = require('../models/User')
 const bcrypt = require('bcryptjs')
 
 module.exports = class AuthsController{
     static login(req, res) {
         res.render('auth/login')
+    }
+    
+    static async loginPost(req, res){
+        const {email, senha} = req.body
+
+        const user = await User.findOne({where: {email: email}})
+
+        if(!user){
+            res.render('auth/login')
+            req.flash('message', 'Usuario não encontrado!')
+            return
+        }
+
+        const senhaMatch = bcrypt.compareSync(senha, user.senha)
+
+        if(!senhaMatch){
+            req.flash('message', 'Senha invalida!')
+            res.render('auth/login')
+            
+            return
+        }
+        // inicializar session
+        req.session.userid = user.id
+        req.flash('message', `Seja bem-vindo ${user.name} !`)
+        req.session.save(() => {
+            res.redirect('/')
+        })
+
     }
     static register(req, res) {
         res.render('auth/register')
@@ -58,4 +87,5 @@ module.exports = class AuthsController{
         req.session.destroy()
         res.redirect('/login')
     }
+
 }

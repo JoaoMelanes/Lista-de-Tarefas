@@ -1,0 +1,12 @@
+<div class="auth-container">
+    <h1>Edite seu pensamento:</h1>
+
+    <form action="/toughts/edit" method="post">
+        <input type="hidden" name="id" value="{{toughts.id}}">
+        <div class="form-control">
+            <label for="pesamento">Pensamento:</label>
+            <input type="text" name="pensamento" placeholder="Digite seu pensamento..." value="{{toughts.title}}" required>
+        </div>
+        <input type="submit" value="Editar" class="btn">
+    </form>
+</div>

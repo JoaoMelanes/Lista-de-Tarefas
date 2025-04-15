@@ -1,0 +1,24 @@
+<div class="auth-container">
+    <h2>Dashboard</h2>
+    <a href="/toughts/add" class="btn"> Criar Pensamentos</a>
+    <h3>Seus Pensamentos:</h3>
+    <div class="list">
+        <ul>
+        {{#each toughts}}
+            <li>
+                <span class="label">{{this.title}}</span>
+                <span class="action">
+                    <a href="/toughts/edit/{{this.id}}">Editar</a>
+                    <form action="/toughts/delete" method="post">
+                        <input type="hidden" name="id" value="{{this.id}}">
+                        <input type="submit" value="Excluir" class="btn">
+                    </form>
+                </span>
+            </li>
+        {{/each}}
+        </ul>
+        {{#if empytToughts}}
+            <p>Ainda não há pessamentos seu, comece a criar <a href="/toughts/add">por aqui</a></p>
+        {{/if}}
+    </div>
+</div>
