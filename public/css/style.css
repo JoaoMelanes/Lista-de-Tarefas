@@ -3,9 +3,10 @@
     padding: 0;
     font-family: helvetica;
 }
-header nav #noturno{
+header nav #img{
     height: 70px;
     width: 50px;
+    cursor: pointer;
 }
 
 .messages{
@@ -112,6 +113,7 @@ footer span{
 .auth-container form .form-control input, .form-control textarea{
     padding: 10px;
     border: none;
+    color: green ;
     border: 1px solid rgb(47, 255, 54);
     border-radius: 10px;
     background: transparent;

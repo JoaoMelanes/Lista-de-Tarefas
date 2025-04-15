@@ -39,11 +39,23 @@ module.exports = class AuthsController{
         }
 
         try{
-            await User.create(user) 
-            res.redirect('/')
+            const createUser = await User.create(user) 
+
             req.flash('message', 'Cadastro realizado com sucesso!')
+
+            // INICIALIZAR SESSION
+            req.session.userid = createUser.id
+            req.session.save(() => {
+                res.redirect('/')
+            })
+            
         }catch(err){
             console.log(err)
         }
+    }
+
+    static logout(req, res) {
+        req.session.destroy()
+        res.redirect('/login')
     }
 }

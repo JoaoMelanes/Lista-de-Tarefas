@@ -7,14 +7,33 @@
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
     <script>
-        function mudaImg() {
-        const id = document.getElementById('noturno').src="/img/LAMPADA-APG.png" 
-        document.body.style.backgroundColor = "#222"
+        function trocaTemplate(){
+
+    const img = document.getElementById('img')
+    const imgAtual = img.getAttribute('src') 
+
+    if(imgAtual === '/img/LAMPADA.png'){
+        img.setAttribute('src' , '/img/LAMPADA-APG.png')
+        localStorage.setItem('imagem','/img/LAMPADA-APG.png')
+    } else {
+        img.setAttribute('src', '/img/LAMPADA.png')
+        localStorage.setItem('imagem', '/img/LAMPADA.png')
+    }
+
+    window.onload = function (){
+        const imagemSalva = localStorage.getItem('imagem')
+        if(imagemSalva){
+            document.getElementById('img').setAttribute('src', imagemSalva)
         }
-        function volta() {
-        const id = document.getElementById('noturno').src="/img/LAMPADA.png"
-        document.body.style.backgroundColor = "white"
-        }
+    }
+    
+    if(imgAtual === '/img/LAMPADA.png'){
+        document.body.style.backgroundColor = 'black'
+    } else{
+        document.body.style.backgroundColor = 'white'
+    }
+
+}
     </script>
     {{!-- Bootstrap icon --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -22,12 +41,16 @@
 <body>
     <header>
         <nav id="navbar">
-                <img src="/img/LAMPADA.png" alt="logo-modos" id="noturno" onclick="mudaImg()" ondblclick="volta()">
+                <img src="/img/LAMPADA.png" alt="logo-modos" id="img" onclick="trocaTemplate()">
             <ul>
                 <li><a href="/">Pensamentos</a></li>
-                {{!-- URLS apos autenticação --}}
+                {{#if session.userid}}
+                <li><a href="/toughts/dashboard">Dashboard</a></li>
+                <li><a href="/logout">Sair</a></li>
+                {{else}}
                 <li><a href="/login">Entrar</a></li>
                 <li><a href="/register">Registrar</a></li>
+                {{/if}}
             </ul>
         </nav>
     </header>
